@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickFlask Documentation</title>
+    <style>
+      body {
+        font-family: monospace;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #333;
+      }
+      footer {
+        text-align: center;
+      }
+      footer a {
+        color: #198ed2;
+        text-decoration: none;
+      }
+      hr{
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>QuickFlask</h1>
+    <p>
+      <strong>QuickFlask</strong> is a CLI tool designed to help you create
+      modular, functional Flask applications in seconds. I love Flask, but I
+      often found myself writing the same boilerplate code repeatedly. To save
+      time, I created QuickFlask. This tool will save you time and effort,
+      allowing you to focus on building your application rather than setting up
+      the initial structure. It adheres to the DRY (Don’t Repeat Yourself)
+      principle.
+    </p>
+
+    <h2>Installation</h2>
+    <p>To install QuickFlask, run:</p>
+    <pre><code>pip3 install quick-flask</code></pre>
+
+    <h2>Usage</h2>
+    <p>Once installed, you can create a new Flask project by running:</p>
+    <pre><code>quickflask</code></pre>
+
+    <h3>Options:</h3>
+    <ul>
+      <li>
+        <code>--name</code> (Required): The name of your Flask application.
+      </li>
+      <li>
+        <code>--socketio</code> (Optional): Include Flask-SocketIO support for
+        real-time communication.
+      </li>
+    </ul>
+
+    <p>Example with SocketIO:</p>
+    <pre><code>quickflask --name my-chat-app --socketio</code></pre>
+
+    <h2>Running Your Flask App</h2>
+    <p>After creating your project, navigate into the directory:</p>
+    <pre><code>cd my_flask_app</code></pre>
+
+    <p>Set up a virtual environment (recommended):</p>
+    <pre><code>python3 -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate</code></pre>
+
+    <p>Install dependencies:</p>
+    <pre><code>pip install -r requirements.txt</code></pre>
+
+    <p>Run the Flask app:</p>
+    <pre><code>python app.py</code></pre>
+
+    <p>
+      Your application will be accessible at
+      <code>http://127.0.0.1:5000/</code>.
+    </p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>
+        Generates a structured Flask project with blueprints and templates.
+      </li>
+      <li>Automatically sets up templates and API routes.</li>
+      <li>Saves time by eliminating repetitive boilerplate code.</li>
+    </ul>
+
+    <h2>Contributing</h2>
+    <p>
+      Feel free to open issues or submit pull requests to improve QuickFlask.
+      Contributions are always welcome!
+    </p>
+
+    <h2>License</h2>
+    <p>
+      This project is licensed under the MIT License. See
+      <code>LICENSE</code> for details.
+    </p>
+
+    <hr/>
+
+    <h2>Changelog</h2>
+    <p>All notable changes to this project will be documented in this file.</p>
+
+    <h3>[1.0.0] - 2025-01-30</h3>
+    <h4>Added</h4>
+    <ul>
+      <li>Initial release.</li>
+      <li>Creates a project structure with blueprints and templates.</li>
+      <li>Adds boilerplate code for a Flask application.</li>
+      <li>Includes a home page template with instructions.</li>
+    </ul>
+
+
+    <hr/>
+
+    <footer>
+      <p>Made by <a href="https://adimail.github.io" target="_blank">Aditya Godse</a></p>
+      <p>
+        <a href="https://github.com/adimail/quickflask" target="_blank">Source Code</a> |
+        <a href="https://pypi.org/project/quick-flask/" target="_blank">PyPI Page</a>
+      </p>
+    </footer>
+  </body>
+</html>

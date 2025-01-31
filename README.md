@@ -71,3 +71,10 @@ Feel free to open issues or submit pull requests to improve QuickFlask. Contribu
 ## License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
+
+## Change Log
+
+For a detailed list of changes and version history, please see the [CHANGELOG.md](CHANGELOG.md) file.
+
+### Available Versions
+- 1.0.0 (Current)
