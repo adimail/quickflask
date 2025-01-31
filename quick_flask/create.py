@@ -1,6 +1,7 @@
 import os
 import click
 import subprocess
+import platform
 from quick_flask.content import (
     base_api_py,
     base_base_html,
@@ -128,15 +129,22 @@ def create_flask_app(name, socketio):
     create_templates(name)
     create_requirements(name, socketio)
     
+    is_windows = platform.system() == "Windows"
+    activation_command = "source venv/bin/activate" if not is_windows else ".\\venv\\Scripts\\activate"
+    
     click.echo(click.style(f"\nFlask application '{name}' created successfully!", fg='green'))
     click.echo(click.style("\nTo get started:", fg='cyan'))
     click.echo(click.style(f"1. cd {name}", fg='cyan'))
     click.echo(click.style(f"2. {python_version} -m venv venv", fg='cyan'))
-    click.echo(click.style(f"3. source venv/bin/activate  # On Windows: .\\venv\\Scripts\\activate", fg='cyan'))
+    click.echo(click.style(f"3. {activation_command}", fg='cyan'))
     click.echo(click.style(f"4. {pip_version} install -r requirements.txt", fg='cyan'))
     click.echo(click.style("5. python app.py", fg='cyan'))
+    
     click.echo(click.style(f"\nQuick start in one command:", fg='yellow'))
-    click.echo(click.style(f"cd {name} && {python_version} -m venv venv && source venv/bin/activate && {pip_version} install -r requirements.txt && {python_version} app.py", fg='green'))
+    click.echo(click.style(
+        f"cd {name} && {python_version} -m venv venv && {activation_command} && {pip_version} install -r requirements.txt && {python_version} app.py", 
+        fg='green'
+    ))
 
 
 if __name__ == "__main__":
