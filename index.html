@@ -30,9 +30,13 @@
         color: #198ed2;
         text-decoration: none;
       }
-      hr{
+      hr {
         margin-top: 50px;
         margin-bottom: 50px;
+      }
+      summary {
+        cursor: pointer;
+        width: fit-content;
       }
     </style>
   </head>
@@ -110,28 +114,47 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate</code></pre>
       <code>LICENSE</code> for details.
     </p>
 
-    <hr/>
+    <hr />
 
     <h2>Changelog</h2>
-    <p>All notable changes to this project will be documented in this file.</p>
+    <p>All notable changes to this project.</p>
 
-    <h3>[1.0.0] - 2025-01-30</h3>
-    <h4>Added</h4>
-    <ul>
-      <li>Initial release.</li>
-      <li>Creates a project structure with blueprints and templates.</li>
-      <li>Adds boilerplate code for a Flask application.</li>
-      <li>Includes a home page template with instructions.</li>
-    </ul>
+    <details>
+      <summary>[1.0.0] - 2025-01-30</summary>
+      <h4>Added</h4>
+      <ul>
+        <li>Initial release.</li>
+        <li>Creates a project structure with blueprints and templates.</li>
+        <li>Adds boilerplate code for a Flask application.</li>
+        <li>Includes a home page template with instructions.</li>
+      </ul>
+    </details>
 
+    <details>
+      <summary>[1.0.1] - 2025-01-30</summary>
+      <h4>Added</h4>
+      <ul>
+        <li>Encoding problem fixed for windows</li>
+        <li>Handle file encoding properly while creating new files</li>
+        <li>Use os.path.join() for cross-platform compatibility.</li>
+      </ul>
+    </details>
 
-    <hr/>
+    <hr />
 
     <footer>
-      <p>Made by <a href="https://adimail.github.io" target="_blank">Aditya Godse</a></p>
       <p>
-        <a href="https://github.com/adimail/quickflask" target="_blank">Source Code</a> |
-        <a href="https://pypi.org/project/quick-flask/" target="_blank">PyPI Page</a>
+        Made by
+        <a href="https://adimail.github.io" target="_blank">Aditya Godse</a>
+      </p>
+      <p>
+        <a href="https://github.com/adimail/quickflask" target="_blank"
+          >Source Code</a
+        >
+        |
+        <a href="https://pypi.org/project/quick-flask/" target="_blank"
+          >PyPI Page</a
+        >
       </p>
     </footer>
   </body>
