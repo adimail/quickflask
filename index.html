@@ -17,6 +17,7 @@
         padding: 10px;
         border-radius: 5px;
         overflow-x: auto;
+        cursor: pointer;
       }
       h1,
       h2,
@@ -54,7 +55,7 @@
 
     <h2>Installation</h2>
     <p>To install QuickFlask, run:</p>
-    <pre><code>pip3 install quick-flask</code></pre>
+    <pre><code>pip install quick-flask</code></pre>
 
     <h2>Usage</h2>
     <p>Once installed, you can create a new Flask project by running:</p>
@@ -79,7 +80,7 @@
     <pre><code>cd my_flask_app</code></pre>
 
     <p>Set up a virtual environment (recommended):</p>
-    <pre><code>python3 -m venv venv
+    <pre><code>python -m venv venv
 source venv/bin/activate  # On Windows: .\venv\Scripts\activate</code></pre>
 
     <p>Install dependencies:</p>
@@ -120,23 +121,35 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate</code></pre>
     <p>All notable changes to this project.</p>
 
     <details>
-      <summary>[1.0.0] - 2025-01-30</summary>
-      <h4>Added</h4>
+      <summary>[1.0.2] - 2025-01-30</summary>
+      <h4>Changes</h4>
       <ul>
-        <li>Initial release.</li>
-        <li>Creates a project structure with blueprints and templates.</li>
-        <li>Adds boilerplate code for a Flask application.</li>
-        <li>Includes a home page template with instructions.</li>
+        <li>Prompt users about the new version of quick-flask avaliable</li>
+        <li>
+          Set default command for windows as pip (insted of pip3) and python
+          (instead of python3)
+        </li>
       </ul>
     </details>
 
     <details>
       <summary>[1.0.1] - 2025-01-30</summary>
-      <h4>Added</h4>
+      <h4>Changes</h4>
       <ul>
         <li>Encoding problem fixed for windows</li>
         <li>Handle file encoding properly while creating new files</li>
         <li>Use os.path.join() for cross-platform compatibility.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>[1.0.0] - 2025-01-30</summary>
+      <h4>Changes</h4>
+      <ul>
+        <li>Initial release.</li>
+        <li>Creates a project structure with blueprints and templates.</li>
+        <li>Adds boilerplate code for a Flask application.</li>
+        <li>Includes a home page template with instructions.</li>
       </ul>
     </details>
 

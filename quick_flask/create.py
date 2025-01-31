@@ -1,6 +1,9 @@
 import os
+import re
 import click
 import platform
+import pkg_resources
+import requests
 from quick_flask.content import (
     base_api_py,
     base_base_html,
@@ -86,24 +89,68 @@ def create_requirements(app_name, use_socketio=False):
 
 def choose_pip_version():
     """Prompt user to select the pip version."""
+    is_windows = platform.system() == "Windows"
+    default_pip = "pip" if is_windows else "pip3"
+
     return click.prompt(
-        "Which pip version would you like to use?",
+        "\nWhich pip version would you like to use?",
         type=click.Choice(["pip", "pip2", "pip3"]),
-        default="pip3"
+        default=default_pip
     )
 
 def choose_python_version():
     """Prompt user to select the python version."""
+    is_windows = platform.system() == "Windows"
+    default_python = "python" if is_windows else "python3"
+
     return click.prompt(
         "Which python version would you like to use?",
         type=click.Choice(["python", "python2", "python3"]),
-        default="python3"
+        default=default_python
     )
+
+def get_latest_version():
+    """Fetch the latest version from PyPI."""
+    try:
+        response = requests.get("https://pypi.org/pypi/quick-flask/json", timeout=5)
+        if response.status_code == 200:
+            return response.json()["info"]["version"]
+    except requests.RequestException:
+        return None
+    return None
+
+def check_for_update():
+    """Compare the installed version with the latest version and prompt for update."""
+    installed_version = pkg_resources.get_distribution("quick-flask").version
+    latest_version = get_latest_version()
+
+    if latest_version and installed_version < latest_version:
+        message_lines = [
+            f"A new version of quick-flask is available: {latest_version} (You have {installed_version})",
+            "Run the following to update:",
+            "pip install --upgrade quick-flask",
+        ]
+
+        max_length = max(len(line) for line in message_lines)
+        border = "─" * (max_length + 4)
+
+        click.echo(click.style(f"\n╭{border}╮", fg="yellow"))
+        for line in message_lines:
+            click.echo(click.style(f"│  {line.ljust(max_length)}  │", fg="yellow"))
+        click.echo(click.style(f"╰{border}╯", fg="yellow"))
 
 @click.command()
 @click.option('--name', prompt='Enter your app name', help='Name of the Flask application')
 @click.option('--socketio', is_flag=True, prompt='Include SocketIO?', help='Include Flask-SocketIO support')
 def create_flask_app(name, socketio):
+    check_for_update()
+
+    valid_name_pattern = r'^[a-zA-Z0-9_-]+$'
+
+    while not re.match(valid_name_pattern, name):
+        click.echo(click.style("\nError: App name can only contain letters, numbers, hyphens (-), and underscores (_).", fg='red'))
+        name = click.prompt('Enter a valid app name')
+
     while os.path.exists(name):
         click.echo(click.style(f"Error: '{name}' already exists. Choose a different name.", fg='red'))
         name = click.prompt('Enter a new app name')

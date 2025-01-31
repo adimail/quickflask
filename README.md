@@ -75,5 +75,3 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 ## Change Log
 
 For a detailed list of changes and version history, please see the [CHANGELOG.md](CHANGELOG.md) file.
-
-Latest version = 1.0.1
