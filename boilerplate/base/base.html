@@ -4,8 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
+    <style>
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+      main {
+        padding: 2rem;
+      }
+    </style>
   </head>
   <body>
-    {% block content %} {% endblock %}
+    <div class="navbar">
+      <h1>Quick flask</h1>
+    </div>
+    <main>
+      {% block content %} {% endblock %}
+    </main>
   </body>
 </html>

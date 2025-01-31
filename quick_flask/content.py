@@ -1,4 +1,74 @@
-{% extends 'base.html' %}
+base_api_py = r"""# import cv2
+# this is for streaming video feed from webcam
+# if you want to use this, uncomment the code above and run $ pip install opencv-python
+
+from flask import Blueprint
+
+api = Blueprint("api", __name__)
+
+@api.route("/test")
+def api_test():
+    return "API blueprint is set up!"
+
+
+# API to stream video feed from webcam
+# camera = cv2.VideoCapture(0)
+# def generate_frames():
+#     while True:
+#         success, frame = camera.read()
+#         if not success:
+#             break
+#         else:
+#             _, buffer = cv2.imencode('.jpg', frame)
+#             frame = buffer.tobytes()
+#             yield (b'--frame\r\n'
+#                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+# @api.route('/video_feed')
+# def video_feed():
+#     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+# Build your APIs from here
+"""
+
+base_base_html = r"""<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+      main {
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Quick flask</h1>
+    </div>
+    <main>
+      {% block content %} {% endblock %}
+    </main>
+  </body>
+</html>
+"""
+
+base_boilerplate_init_py = r"""# Register your blueprints here
+"""
+
+base_home_html = r"""{% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
 
@@ -61,3 +131,25 @@
   
   <p>Whether you're building a small project or scaling a larger application, Flask can handle your needs without adding unnecessary complexity.</p>
 {% endblock %}
+"""
+
+base_home_py = r"""from flask import Blueprint, render_template
+
+home_bp = Blueprint('home', __name__)
+
+@home_bp.route('/')
+def home():
+    return render_template('home.html')
+"""
+
+base_socketio_py = r"""from flask import Blueprint
+
+socketio_bp = Blueprint("socketio", __name__)
+
+@socketio_bp.route("/socketio-test")
+def socketio_test():
+    return "SocketIO blueprint is set up!"
+
+
+# Handle your SocketIO events here
+"""
