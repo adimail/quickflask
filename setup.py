@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name='quick-flask',
-    version='1.1.0',
+    version='1.1.1',
     description='CLI tool to quickly generate Flask apps',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -17,6 +17,10 @@ setup(
         'questionary',
         'colorama'
     ],
+    include_package_data=True,
+    package_data={
+        'quick_flask': ['boilerplate/**/*'],
+    },
     entry_points={
         'console_scripts': [
             'quickflask = quick_flask.create:create_flask_app',
