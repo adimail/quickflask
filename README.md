@@ -10,6 +10,10 @@ To install QuickFlask, run:
 pip3 install quick-flask
 ```
 
+```sh
+pip3 install quick-flask --upgrade
+```
+
 ## Usage
 
 Once installed, you can create a new Flask project by running:
@@ -17,6 +21,9 @@ Once installed, you can create a new Flask project by running:
 ```sh
 quickflask
 ```
+
+![Usage](ss.jpeg)
+![Usage](ss2.jpeg)
 
 ### Options:
 

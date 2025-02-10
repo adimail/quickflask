@@ -19,6 +19,8 @@ def create_flask_app():
     if not project_name:
         sys.exit(1)
 
+    project_name = project_name.replace(" ", "_")
+
     project_template = args.template or questionary.select(
         "Choose a template",
         choices=["base"]

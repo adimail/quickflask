@@ -39,6 +39,10 @@
         cursor: pointer;
         width: fit-content;
       }
+      img {
+        width: 100%;
+        margin: 20px 0;
+      }
     </style>
   </head>
   <body>
@@ -56,10 +60,12 @@
     <h2>Installation</h2>
     <p>To install QuickFlask, run:</p>
     <pre><code>pip install quick-flask</code></pre>
+    <pre><code>pip3 install quick-flask --upgrade</code></pre>
 
     <h2>Usage</h2>
     <p>Once installed, you can create a new Flask project by running:</p>
     <pre><code>quickflask</code></pre>
+    <img src="ss2.jpeg" alt="" />
 
     <h3>Options:</h3>
     <ul>
@@ -67,6 +73,7 @@
         <code>--name</code> (Required): The name of your Flask application.
       </li>
     </ul>
+    <img src="ss.jpeg" alt="" />
 
     <p>Example</p>
     <pre><code> quickflask --name my_flask_app --template base</code></pre>
@@ -115,6 +122,15 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate</code></pre>
 
     <h2>Changelog</h2>
     <p>All notable changes to this project.</p>
+
+    <details>
+      <summary>[1.1.2] - 2025-02-10</summary>
+      <h4>Changes</h4>
+      <ul>
+        <li>FIX: Added sqlite3 database instance in the boilerplate code</li>
+        <li>FIX: Replace spaces in project name with `_` underscores</li>
+      </ul>
+    </details>
 
     <details>
       <summary>[1.1.1] - 2025-02-10</summary>

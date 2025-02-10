@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name='quick-flask',
-    version='1.1.1',
+    version='1.1.2',
     description='CLI tool to quickly generate Flask apps',
     long_description=long_description,
     long_description_content_type='text/markdown',
