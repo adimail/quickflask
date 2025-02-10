@@ -14,7 +14,8 @@ setup(
     url='https://github.com/adimail/quickflask',
     packages=find_packages(include=['quick_flask', 'quick_flask.*']),
     install_requires=[
-        'click',
+        'questionary',
+        'colorama'
     ],
     entry_points={
         'console_scripts': [

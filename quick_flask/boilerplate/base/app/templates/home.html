@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | QuickFlask{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  <style>
+    .home-container h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+    .home-container h2 {
+      color: #0056b3;
+      margin-top: 30px;
+    }
+    .home-container h3 {
+      color: #333;
+      margin-top: 20px;
+    }
+    .home-container p {
+      margin: 10px 0;
+    }
+    .home-container ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .home-container code {
+      background: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    .home-container a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .home-container a:hover {
+      text-decoration: underline;
+    }
+    .quickflask {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-top: 40px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    .quickflask pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+    /* Grid layout for available routes */
+    .routes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .routes-grid a {
+      display: block;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+      background-color: #fff;
+      text-decoration: none;
+      color: #007bff;
+      transition: background-color 0.3s ease;
+    }
+    .routes-grid a:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="home-container">
+    <p>
+      Welcome to your newly created Flask app powered by <strong>QuickFlask</strong>.
+      QuickFlask helps you build projects very fast by eliminating repetitive boilerplate code and setting up a structured project layout.
+    </p>
+
+    <h2>Getting Started</h2>
+    <p>Here are the key components of your project structure and how to begin:</p>
+    <ul>
+      <li>The main application folder is <code>app/</code>. All your app's core logic and structure will reside here.</li>
+      <li>The entry point of your app is <code>app/__init__.py</code>. This is where Flask's app instance is created and configurations are initialized.</li>
+      <li>Your app is organized using <code>Blueprints</code>, which are located in <code>app/blueprints/</code>. Blueprints help structure your app into logical modules.</li>
+      <li>Blueprint for the Home Page: <code>app/blueprints/home.py</code>. This blueprint defines the routes and views for the homepage of your application.</li>
+      <li>API Blueprint: <code>app/blueprints/api.py</code>. You can test the API at the endpoint: <a href="/api/test">/api/test</a>.</li>
+      <li>Auth Blueprint: <code>app/blueprints/auth.py</code>. You can login using this endpoint: <a href="/login">/login</a>.</li>
+      <li>Auth Blueprint: <code>app/blueprints/auth.py</code>. You can register using this endpoint: <a href="/register">/register</a>.</li>
+    </ul>
+
+    <h2>Available Routes</h2>
+    <p>The following routes are available in this application:</p>
+    <div class="routes-grid">
+      <a href="/api/test">/api/test</a>
+      <a href="/login">/login</a>
+      <a href="/register">/register</a>
+      <a href="/admin">/admin</a>
+      <a href="/profile">/profile</a>
+    </div>
+
+    <p><em>Note: To update this page, modify <code>app/templates/home.html</code>.</em></p>
+
+    <h2>About Flask</h2>
+    <p>
+      Flask is a minimalistic WSGI (Web Server Gateway Interface) web application framework for Python. It focuses on simplicity and flexibility, which makes it ideal for both beginners and seasoned developers.
+      Flask provides the core tools needed to get a web application up and running quickly, while allowing developers to add only the features they need.
+    </p>
+    <p>Some key features of Flask include:</p>
+    <ul>
+      <li>Lightweight: Designed to keep the core simple yet extensible.</li>
+      <li>Flexible: Does not dictate how to structure your application, giving you full control.</li>
+      <li>Extensible: Supports many extensions such as Flask-SQLAlchemy, Flask-WTF, and Flask-Login.</li>
+      <li>Rapid development: Includes a built-in development server and debugger.</li>
+    </ul>
+
+    <h2>Blueprints in Flask</h2>
+    <p>
+      Blueprints allow you to organize your application into smaller, reusable components. They are essential for larger applications that require modularization.
+      Each blueprint encapsulates routes, templates, static files, and other components that relate to a specific feature or functionality.
+    </p>
+    <p>To create a new blueprint, follow these steps:</p>
+    <ul>
+      <li>Define the blueprint in a separate Python file within <code>app/blueprints/</code>.</li>
+      <li>Register the blueprint in the main app initialization file (<code>app/__init__.py</code>).</li>
+      <li>Assign routes to the blueprint and link them to the necessary views or templates.</li>
+    </ul>
+
+    <h2>Templates and Jinja2</h2>
+    <p>
+      Flask uses <strong>Jinja2</strong> as its template engine, allowing you to create dynamic HTML pages by embedding Python-like expressions in your HTML.
+      This makes it possible to render data from Python objects directly into your HTML files.
+    </p>
+    <p>Benefits of using Jinja2 with Flask:</p>
+    <ul>
+      <li>Separation of concerns: Keeps presentation logic separate from business logic.</li>
+      <li>Dynamic content: Easily include variables, conditionals, loops, and filters.</li>
+      <li>Template inheritance: Create a base template and extend it across multiple pages for consistency.</li>
+    </ul>
+
+    <h2>Why Choose Flask?</h2>
+    <p>
+      Flask is a great choice for a web framework because of its minimalism, flexibility, rich ecosystem, and rapid development features.
+      Whether you're building a small project or scaling a larger application, Flask can handle your needs without adding unnecessary complexity.
+    </p>
+
+    <div class="quickflask">
+      <h2>About QuickFlask</h2>
+      <p>
+        <strong>QuickFlask</strong> is a CLI tool designed to help you create modular, functional Flask applications in seconds.
+        It helps you build projects very fast by eliminating repetitive boilerplate code and setting up a robust project structure.
+        QuickFlask is built by <a href="https://adimail.github.io/" target="_blank">Aditya</a> and the source code is available on <a href="https://github.com/adimail/quickflask" target="_blank">GitHub</a>.
+      </p>
+
+      <h3>Installation</h3>
+      <p>To install QuickFlask, run:</p>
+      <pre>pip3 install quick-flask</pre>
+
+      <h3>Usage</h3>
+      <p>Once installed, create a new Flask project by running:</p>
+      <pre>quickflask</pre>
+      <p><strong>Options:</strong></p>
+      <ul>
+        <li><code>--name</code> (Required): The name of your Flask application.</li>
+      </ul>
+      <p>Example</p>
+      <pre>quickflask --name my_flask_app</pre>
+
+      <h3>Running Your Flask App</h3>
+      <p>After creating your project, navigate into the directory:</p>
+      <pre>cd my_flask_app</pre>
+      <p>Set up a virtual environment (recommended):</p>
+      <pre>
+python3 -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate</pre>
+      <p>Install dependencies:</p>
+      <pre>pip install -r requirements.txt</pre>
+      <p>Run the Flask app:</p>
+      <pre>python app.py</pre>
+      <p>Your application will be accessible at <code>http://127.0.0.1:5000/</code>.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Generates a structured Flask project with blueprints and templates.</li>
+        <li>Automatically sets up templates and API routes.</li>
+        <li>Built-in rate limiter to help prevent abuse and manage traffic.</li>
+        <li>SQL database integration for robust data management.</li>
+        <li>Saves time by eliminating repetitive boilerplate code.</li>
+      </ul>
+
+      <h3>Contributing</h3>
+      <p>
+        Feel free to open issues or submit pull requests to improve QuickFlask. Contributions are always welcome! The source code is available on <a href="https://github.com/adimail/quickflask" target="_blank">GitHub</a>.
+      </p>
+
+      <h3>License</h3>
+      <p>
+        This project is licensed under the MIT License.
+      </p>
+    </div>
+  </div>
+{% endblock %}

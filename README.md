@@ -21,12 +21,11 @@ quickflask
 ### Options:
 
 - `--name` (Required): The name of your Flask application.
-- `--socketio` (Optional): Include Flask-SocketIO support for real-time communication.
 
-Example with SocketIO:
+Example:
 
 ```sh
-quickflask --name my-chat-app --socketio
+quickflask --name my_flask_app
 ```
 
 ## Running Your Flask App

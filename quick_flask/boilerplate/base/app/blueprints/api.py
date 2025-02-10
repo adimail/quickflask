@@ -4,9 +4,9 @@
 
 from flask import Blueprint
 
-api = Blueprint("api", __name__)
+api_bp = Blueprint("api", __name__)
 
-@api.route("/test")
+@api_bp.route("/test")
 def api_test():
     return "API blueprint is set up!"
 
