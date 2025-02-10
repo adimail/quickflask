@@ -66,14 +66,10 @@
       <li>
         <code>--name</code> (Required): The name of your Flask application.
       </li>
-      <li>
-        <code>--socketio</code> (Optional): Include Flask-SocketIO support for
-        real-time communication.
-      </li>
     </ul>
 
-    <p>Example with SocketIO:</p>
-    <pre><code>quickflask --name my-chat-app --socketio</code></pre>
+    <p>Example</p>
+    <pre><code> quickflask --name my_flask_app --template base</code></pre>
 
     <h2>Running Your Flask App</h2>
     <p>After creating your project, navigate into the directory:</p>
@@ -119,6 +115,21 @@ source venv/bin/activate  # On Windows: .\venv\Scripts\activate</code></pre>
 
     <h2>Changelog</h2>
     <p>All notable changes to this project.</p>
+
+    <details>
+      <summary>[1.1.0] - 2025-02-10</summary>
+      <h4>Changes</h4>
+      <ul>
+        <li>
+          Refactor file generation: now using shutil.copytree to copy blueprint
+          files to source
+        </li>
+        <li>
+          Updated boilerplate now has user authentication, verification,
+          registration, rate limiting and database out of the box.
+        </li>
+      </ul>
+    </details>
 
     <details>
       <summary>[1.0.2] - 2025-01-30</summary>
